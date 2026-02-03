@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+        }
+        .calc-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        input, select {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc-box">
+        <input type="text" id="left" placeholder="Left operand">
+        
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        
+        <input type="text" id="right" placeholder="Right operand">
+        
+        <input type="submit" value="Try me!" onclick="calculate()">
+    </div>
+
+    <script>
+        setInterval(() => {
+            alert('Please, use me...');
+        }, 30000);
+
+        function calculate() {
+            const leftVal = document.getElementById('left').value;
+            const rightVal = document.getElementById('right').value;
+            const op = document.getElementById('operator').value;
+
+            if (!isPositiveInteger(leftVal) || !isPositiveInteger(rightVal)) {
+                alert('Error :(');
+                return;
+            }
+
+            const n1 = parseInt(leftVal);
+            const n2 = parseInt(rightVal);
+            let result;
+
+            if ((op === '/' || op === '%') && n2 === 0) {
+                alert("It's over 9000!");
+                return;
+            }
+
+            switch (op) {
+                case '+': result = n1 + n2; break;
+                case '-': result = n1 - n2; break;
+                case '*': result = n1 * n2; break;
+                case '/': result = n1 / n2; break;
+                case '%': result = n1 % n2; break;
+            }
+
+            alert(result);
+        }
+
+        function isPositiveInteger(str) {
+            if (str.trim() === "") return false;
+            const n = Number(str);
+            return Number.isInteger(n) && n >= 0;
+        }
+    </script>
+</body>
+</html>

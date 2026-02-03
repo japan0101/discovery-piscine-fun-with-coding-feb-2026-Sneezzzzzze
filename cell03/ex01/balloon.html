@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Balloon</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .balloon {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.1s ease; 
+        }
+        .balloon-string {
+            font-size: 150px; 
+            transform: rotate(90deg);
+            margin-top: -50px;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="balloon" id="balloon" 
+                 onclick="growBalloon()" 
+                 onmouseleave="shrinkBalloon()"></div>
+            <div class="balloon-string" id="balloon-string">~</div>
+        </div>
+    </div>
+
+    <script>
+        const balloon = document.getElementById('balloon');
+        const string = document.getElementById('balloon-string');
+        const colors = ['red', 'green', 'blue'];
+        let colorIndex = 0;
+
+        function updateDisplay(size) {
+            balloon.style.width = size + 'px';
+            balloon.style.height = size + 'px';
+            balloon.style.backgroundColor = colors[colorIndex];
+
+            const newFontSize = size * 0.8;
+            string.style.fontSize = newFontSize + 'px';
+            string.style.marginTop = -(newFontSize * 0.4) + 'px';
+        }
+
+        function growBalloon() {
+            let newSize = balloon.offsetWidth + 10;
+            if (newSize > 420) {
+                newSize = 200;
+                colorIndex = 0;
+            } else {
+                colorIndex = (colorIndex + 1) % colors.length;
+            }
+            updateDisplay(newSize);
+        }
+
+        function shrinkBalloon() {
+            let currentSize = balloon.offsetWidth;
+            if (currentSize > 200) {
+                let newSize = Math.max(200, currentSize - 5);
+                colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+                updateDisplay(newSize);
+            }
+        }
+    </script>
+</body>
+</html>

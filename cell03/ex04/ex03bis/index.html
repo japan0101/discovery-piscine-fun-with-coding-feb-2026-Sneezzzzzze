@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>To Do List</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                padding: 20px;
+            }
+            #ft_list {
+                margin-top: 20px;
+                border: 1px solid #ddd;
+                min-height: 50px;
+                padding: 10px;
+            }
+            #ft_list div {
+                padding: 10px;
+                margin-bottom: 5px;
+                background: #f9f9f9;
+                border: 1px solid #eee;
+                cursor: pointer;
+            }
+            #ft_list div:hover {
+                background: #fee;
+                border-color: #fcc;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <button>New</button>
+        <div id="ft_list"></div>
+        <script src="todo.js"></script>
+    </body>
+</html>

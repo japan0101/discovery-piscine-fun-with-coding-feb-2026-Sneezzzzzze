@@ -1,0 +1,52 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .parallax-1, .parallax-2 {
+    min-height: 100%; 
+  
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .parallax-1 {
+    background-image: url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+  }
+  
+  .parallax-2 {
+    background-image: url("https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+  }
+  
+  .static-block {
+    height: 400px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .message-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 20px 40px;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid black;
+  }
+  
+  .static-message {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
